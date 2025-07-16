@@ -33,3 +33,5 @@ const initialData = {
         bullets: ["Skills used", "Project impact"],
     },],
 }
+
+export default initialData;
