@@ -1,3 +1,10 @@
+import Header from "./Header.jsx";
+import Summary from "./Summary.jsx";
+import Education from "./Education.jsx";
+import Experience from "./Experience.jsx";
+import Skills from "./Skills.jsx";
+import Projects from "./Projects.jsx";
+
 
 export default function Page( { setData, header, summary, education, experience, skills, projects }) {
 
