@@ -5,6 +5,8 @@ import Experience from "./Experience.jsx";
 import Skills from "./Skills.jsx";
 import Projects from "./Projects.jsx";
 
+import "../styles/Page.css";
+
 
 export default function Page( { setData, header, summary, education, experience, skills, projects }) {
 
