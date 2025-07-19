@@ -1,5 +1,5 @@
 
-export default function Header({ setData, header }) {
+export default function Header({ data, setData }) {
 
     function handleHeaderData(e, item) {
         const itemData = e.target.value;
@@ -15,13 +15,13 @@ export default function Header({ setData, header }) {
 
     return (
         <>
-            <textarea className="name" onChange={e => handleHeaderData(e, "name")}>{header.name}</textarea>
-            <textarea className="title" onChange={e => handleHeaderData(e, "title")}>{header.title}</textarea>
-            <textarea className="location" onChange={e => handleHeaderData(e, "location")}>{header.location}</textarea>
+            <textarea className="name" onChange={e => handleHeaderData(e, "name")} value={data.name} />
+            <textarea className="title" onChange={e => handleHeaderData(e, "title")} value={data.title} />
+            <textarea className="location" onChange={e => handleHeaderData(e, "location")} value={data.location} />
             <div className="contact-container">
-                <textarea className="phone" onChange={e => handleHeaderData(e, "phone")}>{header.phone}</textarea>
+                <textarea className="phone" onChange={e => handleHeaderData(e, "phone")} value={data.phone} />
                 <span className="hypen">-</span>
-                <textarea className="email">{e => handleHeaderData(e, "email")}</textarea>
+                <textarea className="email" onChange={e => handleHeaderData(e, "email")} value={data.email} />
             </div>
         </>
     );
