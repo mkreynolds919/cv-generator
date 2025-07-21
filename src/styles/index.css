@@ -1,15 +1,18 @@
+
+@font-face {
+  font-family: 'PT Serif Caption';
+  src: url('../assets/PTSerifCaption-Regular.ttf');
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: 'PT Serif Caption';
 }
 
 html, body, #root {
   height: 100%;
   width: 100%;
-}
-
-body {
-  font-family: 'PT Serif Caption', serif;
 }
 
 #root {
