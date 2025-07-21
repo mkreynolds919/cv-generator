@@ -8,12 +8,15 @@
 }
 
 .header-container input {
-    text-align: center;
     border: none;
 }
 
 .header-container input:focus {
     outline: none;
+}
+
+.name, .title, .location {
+    text-align: center;
 }
 
 .name {
@@ -23,3 +26,26 @@
 .title {
     font-size: 18px;
 }
+
+.contact-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+}
+
+.location {
+    text-align: right;
+}
+
+.phone {
+    text-align: center;
+    width: 12ch;
+}
+
+.email {
+    font-size: 12px;
+    width: 28ch;
+}
+
