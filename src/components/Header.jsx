@@ -1,4 +1,6 @@
 
+import "../styles/Header.css";
+
 export default function Header({ data, setData }) {
 
     function handleHeaderData(e, item) {
