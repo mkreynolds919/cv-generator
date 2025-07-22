@@ -1,5 +1,7 @@
 
-export default function Summary({ setData, summary }) {
+import "../styles/Summary.css";
+
+export default function Summary({ setData, data }) {
 
     function handleSummary(e) {
         const newSummary = e.target.value;
@@ -12,7 +14,7 @@ export default function Summary({ setData, summary }) {
         <div className='summary-container'>
             <h1 className='section-header'>Summary</h1>
             <hr></hr>
-            <textarea className="Summary" value={summary} onChange={handleSummary}></textarea>
+            <textarea className="summary" value={data} onChange={handleSummary}></textarea>
         </div>
     );
 }
