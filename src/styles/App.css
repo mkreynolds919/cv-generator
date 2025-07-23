@@ -11,3 +11,11 @@
 hr {
     border: 1px solid black;
 }
+
+input {
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}

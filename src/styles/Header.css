@@ -7,14 +7,6 @@
     padding: 2rem;
 }
 
-.header-container input {
-    border: none;
-}
-
-.header-container input:focus {
-    outline: none;
-}
-
 .name, .title, .location {
     text-align: center;
 }
