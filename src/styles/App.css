@@ -1,0 +1,13 @@
+
+.section-header {
+    font-weight: 80;
+    font-size: 26px;
+}
+
+.section {
+    padding: 0 2rem;
+}
+
+hr {
+    border: 1px solid black;
+}

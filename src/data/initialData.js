@@ -14,7 +14,8 @@ const initialData = {
         startDate: "1/1/2000",
         endDate: "1/1/2025",
         degrees: ["First Degree", "Second Degree"],
-        bullets: ["Club Contributions", "Research", "GPA"]
+        bullets: ["Club Contributions", "Research", "GPA"],
+        id: crypto.randomUUID(),
     },],
     experience: [{
        company: "Company Name",
@@ -23,6 +24,7 @@ const initialData = {
        endDate: "1/1/2025",
        role: "Title/Role",
        bullets: ["Contributions", "Responsibilities"],
+       id: crypto.randomUUID(),
     },],
     skills: ["Skill1", "Skill2", "Skill3"],
     projects: [{
@@ -31,6 +33,7 @@ const initialData = {
         endDate: "1/1/2025",
         description: "Add a short description of your project or additional experience",
         bullets: ["Skills used", "Project impact"],
+        id: crypto.randomUUID(),
     },],
 }
 

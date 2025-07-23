@@ -11,7 +11,7 @@ export default function Summary({ setData, data }) {
         }));
     }
     return (
-        <div className='summary-container'>
+        <div className='summary-container section'>
             <h1 className='section-header'>Summary</h1>
             <hr></hr>
             <textarea className="summary" value={data} onChange={handleSummary}></textarea>
