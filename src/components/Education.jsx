@@ -8,14 +8,15 @@ export default function Education({ setData, data }) {
             <hr></hr>
             {data.map(school => {
                 return <SectionInfo 
-                        university={school.university} 
+                        name={school.name} 
                         location={school.location} 
                         startDate={school.startDate}
                         endDate={school.endDate}
-                        degrees={school.degrees}
+                        subtitles={school.subtitles}
                         bullets={school.bullets}
                         setData={setData}
                         key={school.id}
+                        source="education"
                         />
             })}
         </div>

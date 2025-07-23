@@ -1,28 +1,28 @@
 
-export default function SectionInfo({ university, location, startDate, endDate, degrees, bullets, setData }) {
+export default function SectionInfo({ name, location, startDate, endDate, subtitles, bullets, setData, source }) {
 
     function handleInfo(e, item) {
         const itemData = e.target.value;
-
+        
         setData((prevData) => ({
-            ...prevData,
-            education: {
-                ...prevData.education,
-                [item]: itemData,
-            },
-        }));
+                    ...prevData,
+                    [source]: {
+                        ...prevData[source],
+                        [item]: itemData,
+                    },
+                }));
     }
 
-    function handleDegrees(e, index) {
+    function handleSubtitles(e, index) {
         const itemData = e.target.value;
 
         setData((prevData) => ({
-            ...prevData,
-            education: {
-                ...prevData.education,
-                degrees: prevData.degrees.map((deg, i) => i === index ? itemData : deg),
-            },
-        }))
+                    ...prevData,
+                    [source]: {
+                        ...prevData[source],
+                        subtitles: prevData[source].subtitles.map((sub, i) => i === index ? itemData : sub),
+                    },
+                }))
     }
 
     function handleBullets(e, index) {
@@ -30,9 +30,9 @@ export default function SectionInfo({ university, location, startDate, endDate, 
 
         setData((prevData) => ({
             ...prevData,
-            education: {
-                ...prevData.education,
-                bullets: prevData.bullets.map((b, i) => i === index ? itemData : b),
+            [source]: {
+                ...prevData[source],
+                bullets: prevData[source].bullets.map((b, i) => i === index ? itemData : b),
             },
         })) 
     }
@@ -40,16 +40,16 @@ export default function SectionInfo({ university, location, startDate, endDate, 
     return (
         <div className="info-container">
             <div className="top-line">
-                <input type="text" className="university" value={university} onChange={e => handleInfo(e, "university")}></input>
-                <input type="text" className="location" value={location} onChange={e => handleInfo(e, "location")}></input>
+                <input type="text" className="name" value={name} onChange={e => handleInfo(e, "name")}></input>
+                {location && <input type="text" className="location" value={location} onChange={e => handleInfo(e, "location")}></input>}
                 <div className="date-container">
                     <input type="text" className="start-date" value={startDate} onChange={e => handleInfo(e, "startDate")}></input>
                     <span className="hypen">-</span>
                     <input type="text" className="end-date" value={endDate} onChange={e => handleInfo(e, "endDate")}></input>
                 </div>
             </div>
-            {degrees.map((degree, index) => {
-                return <input key={index} type="text" className="degree" value={degree} onChange={e => handleDegrees(e, index)}></input>
+            {subtitles.map((sub, index) => {
+                return <input key={index} type="text" className="subtitle" value={sub} onChange={e => handleSubtitles(e, index)}></input>
             })}
             {bullets && <ul className="bullets">
                             {bullets.map((bullet, index) => {
