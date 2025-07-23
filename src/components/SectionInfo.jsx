@@ -1,16 +1,17 @@
 
-export default function SectionInfo({ name, location, startDate, endDate, subtitles, bullets, setData, source }) {
+import "../styles/SectionInfo.css";
+
+export default function SectionInfo({ name, location, startDate, endDate, subtitles, bullets, setData, id, source }) {
 
     function handleInfo(e, item) {
         const itemData = e.target.value;
         
         setData((prevData) => ({
                     ...prevData,
-                    [source]: {
-                        ...prevData[source],
-                        [item]: itemData,
-                    },
-                }));
+                    [source]: prevData[source].map((obj) =>
+                        id === obj.id ? { ...obj, [item]: itemData } : obj
+                ),  
+            }));
     }
 
     function handleSubtitles(e, index) {
@@ -18,11 +19,10 @@ export default function SectionInfo({ name, location, startDate, endDate, subtit
 
         setData((prevData) => ({
                     ...prevData,
-                    [source]: {
-                        ...prevData[source],
-                        subtitles: prevData[source].subtitles.map((sub, i) => i === index ? itemData : sub),
-                    },
-                }))
+                    [source]: prevData[source].map((obj) =>
+                        id === obj.id ? {...prevData[source], subtitles: prevData[source].subtitles.map((sub, i) => i === index ? itemData : sub),} : obj
+                    ),
+            }));
     }
 
     function handleBullets(e, index) {
@@ -30,18 +30,20 @@ export default function SectionInfo({ name, location, startDate, endDate, subtit
 
         setData((prevData) => ({
             ...prevData,
-            [source]: {
-                ...prevData[source],
-                bullets: prevData[source].bullets.map((b, i) => i === index ? itemData : b),
-            },
-        })) 
+            [source]: prevData[source].map((obj) =>
+                id === obj.id ? {
+                    ...prevData[source],
+                    bullets: prevData[source].bullets.map((b, i) => i === index ? itemData : b),
+                } : obj
+            ),   
+        }));
     }
 
     return (
         <div className="info-container">
             <div className="top-line">
-                <input type="text" className="name" value={name} onChange={e => handleInfo(e, "name")}></input>
-                {location && <input type="text" className="location" value={location} onChange={e => handleInfo(e, "location")}></input>}
+                <input type="text" className="info-name" value={name} onChange={e => handleInfo(e, "name")}></input>
+                {location && <input type="text" className="info-location" value={location} onChange={e => handleInfo(e, "location")}></input>}
                 <div className="date-container">
                     <input type="text" className="start-date" value={startDate} onChange={e => handleInfo(e, "startDate")}></input>
                     <span className="hypen">-</span>
