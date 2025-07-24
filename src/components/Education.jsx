@@ -2,7 +2,6 @@
 import SectionInfo from "./SectionInfo.jsx";
 
 export default function Education({ data, setData }) {
-    console.log(data);
     return (
         <div className="education-container section">
             <h1 className="section-header">Education</h1>
