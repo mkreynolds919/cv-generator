@@ -26,3 +26,12 @@
     width: 10ch;
     text-align: center;
 }
+
+.subtitle {
+    display: block;
+    margin: 0 1rem;
+}
+
+.bullets {
+    margin: 0 4rem;
+}
