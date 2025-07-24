@@ -1,0 +1,12 @@
+
+
+.inner {
+    display: flex;
+    padding: 1rem 1rem;
+    justify-content: center;
+}
+
+.skill {
+    text-align: center;
+    width: 15ch;
+}

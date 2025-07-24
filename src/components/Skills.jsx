@@ -1,4 +1,6 @@
 
+import "../styles/Skills.css";
+
 export default function Skills({ data, setData }) {
 
     function handleSkill(e, index) {
@@ -19,7 +21,7 @@ export default function Skills({ data, setData }) {
                         return (
                             <>
                                 <input key={index} type="text" className="skill" value={skill} onChange={e => handleSkill(e, index)}></input>
-                                {index < data.length && <span className="hypen">-</span>}
+                                {index < data.length - 1 && <span className="hypen">-</span>}
                             </>
                         );
                     })}
