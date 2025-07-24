@@ -1,4 +1,5 @@
 
+import React from "react";
 import "../styles/Skills.css";
 
 export default function Skills({ data, setData }) {
@@ -19,10 +20,10 @@ export default function Skills({ data, setData }) {
                 <div className="inner">
                     {data.map((skill, index) => {
                         return (
-                            <>
-                                <input key={index} type="text" className="skill" value={skill} onChange={e => handleSkill(e, index)}></input>
-                                {index < data.length - 1 && <span className="hypen">-</span>}
-                            </>
+                            <React.Fragment key={skill}>
+                                <input key={index} type="text" className="skill" value={skill} onChange={e => handleSkill(e, index)} style={{width: `${Math.max(skill.length, 1)}ch`}}></input>
+                                {index < data.length - 1 && <span key={"hypen"+index} className="hypen">-</span>}
+                            </React.Fragment>
                         );
                     })}
                 </div>

@@ -15,15 +15,9 @@
 .info-name {
     font-size: 1rem;
     font-weight: bold;
-    width: 20ch;
-}
-
-.info-location {
-    width: 20ch;
 }
 
 .date-container input {
-    width: 10ch;
     text-align: center;
 }
 

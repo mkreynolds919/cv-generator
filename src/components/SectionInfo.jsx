@@ -9,7 +9,7 @@ export default function SectionInfo({ name, location, startDate, endDate, subtit
         setData((prevData) => ({
                     ...prevData,
                     [source]: prevData[source].map((obj) =>
-                        id === obj.id ? { ...obj, [item]: itemData } : obj
+                        id === obj.id ? { ...obj, [item]: (itemData === "" ? " " : itemData) } : obj
                 ),  
             }));
     }
@@ -42,16 +42,16 @@ export default function SectionInfo({ name, location, startDate, endDate, subtit
     return (
         <div className="info-container">
             <div className="top-line">
-                <input type="text" className="info-name" value={name} onChange={e => handleInfo(e, "name")}></input>
-                {location && <input type="text" className="info-location" value={location} onChange={e => handleInfo(e, "location")}></input>}
+                <input type="text" className="info-name" value={name} onChange={e => handleInfo(e, "name")} style={{width: `${Math.max(name.length + 2, 1)}ch`}}></input>
+                {location && <input type="text" className="info-location" value={location} onChange={e => handleInfo(e, "location")} style={{width: `${Math.max(location.length + 2, 1)}ch`}}></input>}
                 <div className="date-container">
-                    <input type="text" className="start-date" value={startDate} onChange={e => handleInfo(e, "startDate")}></input>
+                    <input type="text" className="start-date" value={startDate} onChange={e => handleInfo(e, "startDate")} style={{width: `${Math.max(startDate.length + 2, 1)}ch`}}></input>
                     <span className="hypen">-</span>
-                    <input type="text" className="end-date" value={endDate} onChange={e => handleInfo(e, "endDate")}></input>
+                    <input type="text" className="end-date" value={endDate} onChange={e => handleInfo(e, "endDate")} style={{width: `${Math.max(endDate.length + 2, 1)}ch`}}></input>
                 </div>
             </div>
             {subtitles.map((sub, index) => {
-                return <input key={index} type="text" className="subtitle" value={sub} onChange={e => handleSubtitles(e, index)}></input>
+                return <input key={index} type="text" className="subtitle" value={sub} onChange={e => handleSubtitles(e, index)} style={{width: `${Math.max(sub.length + 2, 1)}ch`}}></input>
             })}
             {bullets && <ul className="bullets">
                             {bullets.map((bullet, index) => {
