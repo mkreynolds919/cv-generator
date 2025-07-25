@@ -4,9 +4,13 @@
     border: none;
     resize: none;
     padding: 4px;
-    height: 75px;
 }
 
 .summary:focus {
     outline: none;
 }
+
+div.summary{
+    font-size: 14px;
+}
+
