@@ -38,6 +38,10 @@
 
 .email {
     font-size: 12px;
-    width: 28ch;
+}
+
+.contact-container div {
+    all: unset;
+    font-size: 12px;
 }
 
