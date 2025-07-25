@@ -1,7 +1,7 @@
 
 import SectionInfo from "./SectionInfo.jsx";
 
-export default function Education({ data, setData }) {
+export default function Education({ data, setData, isEditing }) {
     return (
         <div className="education-container section">
             <h1 className="section-header">Education</h1>
@@ -18,6 +18,7 @@ export default function Education({ data, setData }) {
                         key={school.id}
                         id={school.id}
                         source="education"
+                        isEditing={isEditing}
                         />
             })}
         </div>

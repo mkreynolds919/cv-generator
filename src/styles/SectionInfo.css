@@ -5,11 +5,13 @@
 
 .top-line {
     display: flex;
+    gap: 10px;
 }
 
 .date-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .info-name {
@@ -28,4 +30,9 @@
 
 .bullets {
     margin: 0 4rem;
+}
+
+div.location, .date-container div, div.subtitle, li.bullet {
+    font-size: 12px;
+    margin-right: 4px;
 }

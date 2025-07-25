@@ -1,7 +1,7 @@
 
 import SectionInfo from "./SectionInfo.jsx";
 
-export default function Projects({ data, setData }) {
+export default function Projects({ data, setData, isEditing }) {
     return (
             <div className="projects-container section">
                 <h1 className="section-header">Projects</h1>
@@ -18,6 +18,7 @@ export default function Projects({ data, setData }) {
                             key={proj.id}
                             id={proj.id}
                             source="projects"
+                            isEditing={isEditing}
                             />
                 })}
             </div>
