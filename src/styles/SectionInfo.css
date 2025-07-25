@@ -36,3 +36,7 @@ div.location, .date-container div, div.subtitle, li.bullet {
     font-size: 12px;
     margin-right: 4px;
 }
+
+.location, .date-container *, .subtitle, .bullet-input {
+    font-size: 12px;
+}
