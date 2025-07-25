@@ -2,7 +2,7 @@
 import React from "react";
 import "../styles/Skills.css";
 
-export default function Skills({ data, setData }) {
+export default function Skills({ data, setData, isEditing }) {
 
     function handleSkill(e, index) {
         const itemData = e.target.value;
@@ -13,7 +13,9 @@ export default function Skills({ data, setData }) {
         }));
     }
 
-    return (
+
+    if (isEditing) {
+        return (
             <div className="skills-container section">
                 <h1 className="section-header">Skills</h1>
                 <hr></hr>
@@ -30,4 +32,24 @@ export default function Skills({ data, setData }) {
                 
             </div>
         );
+    } else {
+        return (
+            <div className="skills-container section">
+                <h1 className="section-header">Skills</h1>
+                <hr></hr>
+                <div className="inner">
+                    {data.map((skill, index) => {
+                        return (
+                            <React.Fragment key={skill}>
+                                <div key={index} className="skill">{skill}</div>
+                                {index < data.length - 1 && <div key={"hypen"+index} className="hypen">-</div>}
+                            </React.Fragment>
+                        );
+                    })}
+                </div>
+            </div>
+        );
+    }
+
+    
 }

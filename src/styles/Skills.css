@@ -4,9 +4,14 @@
     display: flex;
     padding: 1rem 1rem;
     justify-content: center;
+    gap: 10px;
 }
 
 .skill {
     text-align: center;
-    width: 15ch;
 }
+
+div.skill, div.hypen {
+    font-size: 12px;
+}
+
