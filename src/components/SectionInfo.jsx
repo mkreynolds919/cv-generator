@@ -1,7 +1,7 @@
 
 import "../styles/SectionInfo.css";
 
-export default function SectionInfo({ name, location, startDate, endDate, subtitles, bullets, setData, id, source, isEditing }) {
+export default function SectionInfo({ name, location, startDate, endDate, subtitles, bullets, setData, id, source, isEditing, deleteSection }) {
 
     function handleInfo(e, item) {
         const itemData = e.target.value;
@@ -51,6 +51,7 @@ export default function SectionInfo({ name, location, startDate, endDate, subtit
                         <span className="hypen">-</span>
                         <input type="text" className="end-date" value={endDate} onChange={e => handleInfo(e, "endDate")} style={{width: `${Math.max(endDate.length + 2, 1)}ch`}}></input>
                     </div>
+                    {isEditing && <button className="delete-section-button" onClick={() => deleteSection(id)}>X</button>}
                 </div>
                 {subtitles.map((sub, index) => {
                     return <input key={index} type="text" className="subtitle" value={sub} onChange={e => handleSubtitles(e, index)} style={{width: `${Math.max(sub.length + 2, 1)}ch`}}></input>

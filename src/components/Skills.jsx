@@ -13,6 +13,16 @@ export default function Skills({ data, setData, isEditing }) {
         }));
     }
 
+    function addSkill() {
+        setData((prevData) => ({
+            ...prevData,
+            skills: [
+                ...prevData.skills,
+                "New Skill",
+            ]
+        }))
+    }
+
 
     if (isEditing) {
         return (
@@ -28,6 +38,7 @@ export default function Skills({ data, setData, isEditing }) {
                             </React.Fragment>
                         );
                     })}
+                    <button className="add-skill-button" onClick={() => addSkill()}>+</button>
                 </div>
                 
             </div>
