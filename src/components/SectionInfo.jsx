@@ -1,7 +1,8 @@
-
+import { useState } from 'react';
 import "../styles/SectionInfo.css";
 
 export default function SectionInfo({ name, location, startDate, endDate, subtitles, bullets, setData, id, source, isEditing, deleteSection }) {
+    const [hoveredBulletIndex, setHoveredBulletIndex] = useState(null);
 
     function handleInfo(e, item) {
         const itemData = e.target.value;
@@ -39,6 +40,35 @@ export default function SectionInfo({ name, location, startDate, endDate, subtit
         }));
     }
 
+    function addBullet() {
+        setData((prevData) => ({
+            ...prevData,
+            [source]: prevData[source].map((obj) =>
+                id === obj.id ? {
+                    ...obj,
+                    bullets: [
+                        ...obj.bullets,
+                        "New bullet",
+                    ]
+                } : obj
+            ),
+        }))
+    }
+
+    function deleteBullet(index) {
+        setData((prevData) => ({
+            ...prevData,
+            [source]: prevData[source].map((obj) => 
+                id === obj.id ? {
+                    ...obj,
+                    bullets: obj.bullets.filter((b, i) => {
+                        return i !== index
+                    })
+                } : obj
+            ),
+        }))
+    }
+
 
     if (isEditing) {
         return (
@@ -58,11 +88,13 @@ export default function SectionInfo({ name, location, startDate, endDate, subtit
                 })}
                 {bullets && <ul className="bullets">
                                 {bullets.map((bullet, index) => {
-                                    return <li className="bullet" key={index}>
+                                    return <li className="bullet" key={index} onMouseEnter={() => setHoveredBulletIndex(index)} onMouseLeave={() => setHoveredBulletIndex(null)}>
                                                 <input type="text" className="bullet-input" value={bullet} onChange={e => handleBullets(e, index)}></input>
+                                                {hoveredBulletIndex === index && <button className="delete-bullet-button" onClick={() => deleteBullet(index)}>✕</button>}
                                             </li>
                                 })}
                             </ul>}
+                {isEditing && <button className="add-bullet-button" onClick={() => addBullet()}>+</button>}
             </div>
         );
     } else {

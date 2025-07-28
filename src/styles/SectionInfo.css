@@ -46,3 +46,16 @@ div.location, .date-container div, div.subtitle, li.bullet {
     background-color: transparent;
     border: none;
 }
+
+.add-bullet-button {
+    background-color: transparent;
+    border: 1px solid gray;
+    margin: 0 2.5rem;
+    border-radius: 50%;
+    width: 20px;
+}
+
+.delete-bullet-button {
+    background-color: transparent;
+    border: none;
+}
