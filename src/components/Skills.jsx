@@ -1,8 +1,9 @@
 
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Skills.css";
 
 export default function Skills({ data, setData, isEditing }) {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
 
     function handleSkill(e, index) {
         const itemData = e.target.value;
@@ -23,6 +24,13 @@ export default function Skills({ data, setData, isEditing }) {
         }))
     }
 
+    function deleteSkill(index) {
+        setData((prevData) => ({
+            ...prevData,
+            skills: prevData.skills.filter((_, i) => i !== index),
+        }));
+    }
+
 
     if (isEditing) {
         return (
@@ -32,10 +40,16 @@ export default function Skills({ data, setData, isEditing }) {
                 <div className="inner">
                     {data.map((skill, index) => {
                         return (
-                            <React.Fragment key={skill}>
+                            <div key={index} className="skill-wrapper" onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
                                 <input key={index} type="text" className="skill" value={skill} onChange={e => handleSkill(e, index)} style={{width: `${Math.max(skill.length, 1)}ch`}}></input>
+                                {hoveredIndex === index && (
+                                    <button
+                                        className="delete-skill-button"
+                                        onClick={() => deleteSkill(index)}
+                                    >✕</button>
+                                )}
                                 {index < data.length - 1 && <span key={"hypen"+index} className="hypen">-</span>}
-                            </React.Fragment>
+                            </div>
                         );
                     })}
                     <button className="add-skill-button" onClick={() => addSkill()}>+</button>

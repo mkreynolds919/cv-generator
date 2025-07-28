@@ -40,3 +40,9 @@ div.location, .date-container div, div.subtitle, li.bullet {
 .location, .date-container *, .subtitle, .bullet-input {
     font-size: 12px;
 }
+
+
+.delete-section-button {
+    background-color: transparent;
+    border: none;
+}

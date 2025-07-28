@@ -27,3 +27,9 @@ div.skill, div.hypen {
     border: 1px solid black;
 }
 
+.delete-skill-button {
+    background-color: transparent;
+    border: none;
+    margin-right: 4px;
+}
+
