@@ -13,7 +13,7 @@ const initialData = {
         location: "City, State",
         startDate: "1/1/2000",
         endDate: "1/1/2025",
-        subtitles: ["First Degree", "Second Degree"],
+        subtitles: ["First Degree"],
         bullets: ["Club Contributions", "Research", "GPA"],
         id: crypto.randomUUID(),
     },],
