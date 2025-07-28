@@ -27,3 +27,27 @@ input:focus {
     background-color: transparent;
     margin-left: 4px;
 }
+
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .cv-page, .cv-page * {
+        visibility: visible;
+    }
+
+    .cv-page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .add-section-button,
+    .delete-skill-button,
+    .edit-mode-button {
+        display: none !important;
+    }
+}
