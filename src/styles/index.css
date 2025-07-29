@@ -4,6 +4,21 @@
   src: url('../assets/PTSerifCaption-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'DM Serif Text';
+  src: url('../assets/DMSerifText.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/Inter.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/RobotoCondensed.ttf');
+}
+
 * {
   margin: 0;
   padding: 0;

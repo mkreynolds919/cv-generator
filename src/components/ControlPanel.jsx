@@ -1,15 +1,8 @@
 import { SketchPicker } from 'react-color';
 import "../styles/ControlPanel.css";
-import { useState } from 'react';
 
 export default function ControlPanel({ setIsEditing, handlePrint}) {
-    const [color, setColor] = useState("#000000");
-
-
-
     function handleColor(clr) {
-        setColor(clr.hex);
-
         const headers = document.querySelectorAll(".section-header");
         const name = document.querySelector('.name');
         headers.forEach((h) => {
@@ -18,12 +11,24 @@ export default function ControlPanel({ setIsEditing, handlePrint}) {
         name.style.color = clr.hex;
     }
 
+    function handleFont(font) {
+        document.querySelectorAll(".page-container *").forEach((el) => {
+            el.style.fontFamily = `${font}`;
+        })
+    }
+
 
     return (
         <div className="control-panel">
             <h1 className='color-header'>Headers and Name Color</h1>
             <div className="color-container">
-                <SketchPicker color={color} onChangeComplete={handleColor} />
+                <SketchPicker color={"#000000"} onChangeComplete={handleColor} />
+            </div>
+            <div className="font-container">
+                <button className="font-btn PT-Serif-Caption" onClick={() => handleFont("PT Serif Caption")}>PT Serif Caption</button>
+                <button className="font-btn Inter" onClick={() => handleFont("Inter")}>Inter</button>
+                <button className="font-btn DM-Serif-Text" onClick={() => handleFont("DM Serif Text")}>DM Serif Text</button>
+                <button className="font-btn Roboto-Condensed" onClick={() => handleFont("Roboto Condensed")}>Robot Condensed</button>
             </div>
             <div className="btn-container">
                 <button className="edit-button" onClick={() => setIsEditing(true)}>Edit</button>

@@ -1,7 +1,7 @@
 
 .control-panel {
     background-color: white;
-    width: 20vw;
+    width: 25vw;
     height: 50vh;
     border-radius: 15px;
     display: flex;
@@ -43,4 +43,38 @@
     background-color: rgb(98, 98, 255);
     border: 3px solid black;
     color: white;
+}
+
+.font-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.font-btn {
+    background-color: transparent;
+    padding: 2px;
+    border-radius: 7px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.font-btn:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+.Inter {
+    font-family: 'Inter';
+}
+
+.Roboto-Condensed {
+    font-family: 'Roboto Condensed';
+}
+
+.PT-Serif-Caption {
+    font-family: 'PT Serif Caption';
+}
+
+.DM-Serif-Text {
+    font-family: 'DM Serif Text';
 }
