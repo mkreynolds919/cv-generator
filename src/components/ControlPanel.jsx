@@ -1,7 +1,7 @@
 
 import "../styles/ControlPanel.css";
 
-export default function ControlPanel() {
+export default function ControlPanel({ setIsEditing, handlePrint}) {
     return (
         <div className="control-panel">
             <div className="btn-container">

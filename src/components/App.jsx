@@ -19,7 +19,7 @@ function App() {
       <div ref={printRef} className="cv-page">
         <Page setData={setData} header={header} summary={summary} education={education} experience={experience} skills={skills} projects={projects} isEditing={isEditing}/>
       </div>
-      <ControlPanel />
+      <ControlPanel setIsEditing={setIsEditing} handlePrint={handlePrint}/>
     </>
   )
 }
