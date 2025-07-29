@@ -5,8 +5,14 @@
     height: 50vh;
     border-radius: 15px;
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 20px;
+}
+
+.color-container {
+    display: flex;
+    justify-content: center;
 }
 
 .btn-container {
