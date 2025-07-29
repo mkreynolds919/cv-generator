@@ -21,6 +21,7 @@ export default function ControlPanel({ setIsEditing, handlePrint}) {
 
     return (
         <div className="control-panel">
+            <h1 className='color-header'>Headers and Name Color</h1>
             <div className="color-container">
                 <SketchPicker color={color} onChangeComplete={handleColor} />
             </div>

@@ -11,7 +11,9 @@ function App() {
   const printRef = useRef();
 
   const handlePrint = () => {
-    window.print();
+    if (!isEditing) {
+      window.print();
+    }
   };
 
   return (
