@@ -1,5 +1,6 @@
 import '../styles/App.css'
 import Page from "./Page.jsx";
+import ControlPanel from "./ControlPanel.jsx";
 import initialData from "../data/initialData.js";
 import { useState, useRef } from 'react';
 
@@ -18,11 +19,7 @@ function App() {
       <div ref={printRef} className="cv-page">
         <Page setData={setData} header={header} summary={summary} education={education} experience={experience} skills={skills} projects={projects} isEditing={isEditing}/>
       </div>
-      <div className="page-button-container">
-        <button className="edit-button" onClick={() => setIsEditing(true)}>Edit</button>
-        <button className="done-button" onClick={() => setIsEditing(false)}>Done</button>
-        <button className="print-button" onClick={() => handlePrint()}>Print</button>
-      </div>
+      <ControlPanel />
     </>
   )
 }

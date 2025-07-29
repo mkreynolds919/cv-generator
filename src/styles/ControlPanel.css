@@ -1,0 +1,34 @@
+
+.control-panel {
+    background-color: white;
+    width: 20vw;
+    height: 50vh;
+    border-radius: 15px;
+    display: flex;
+    align-items: end;
+    padding: 20px;
+}
+
+.btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-container button {
+    font-size: 24px;
+    background-color: transparent;
+    border-radius: 12px;
+    border: 3px solid rgb(125, 175, 250);
+    font-family: sans-serif;
+    padding: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-container button:hover {
+    background-color: rgb(98, 98, 255);
+    border: 3px solid black;
+    color: white;
+}
