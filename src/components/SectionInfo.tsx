@@ -1,10 +1,26 @@
 
 import "../styles/SectionInfo.css";
+import type {ResumeData} from '../data/initialData';
+import type {Dispatch, SetStateAction, ChangeEvent} from 'react';
 
-export default function SectionInfo({ name, location, startDate, endDate, subtitles, bullets, setData, id, source, isEditing, deleteSection }) {
+type Props = {
+    setData:  Dispatch<SetStateAction<ResumeData>>,
+    name: string
+    location: string,
+    startDate: string,
+    endDate: string,
+    subtitles: string[],
+    bullets: string[],
+    id: string,
+    source: "education" | "experience" | "projects",
+    isEditing: boolean,
+    deleteSection: (id: string) => void,
+}
 
-    function handleInfo(e, item) {
-        const itemData = e.target.value;
+export default function SectionInfo({ name, location, startDate, endDate, subtitles, bullets, setData, id, source, isEditing, deleteSection }: Props) {
+
+    function handleInfo(e: ChangeEvent<HTMLInputElement>, item: string) {
+        const itemData: string = e.target.value;
         
         setData((prevData) => ({
                     ...prevData,
@@ -14,26 +30,26 @@ export default function SectionInfo({ name, location, startDate, endDate, subtit
             }));
     }
 
-    function handleSubtitles(e, index) {
-        const itemData = e.target.value;
+    function handleSubtitles(e: ChangeEvent<HTMLInputElement>, index: number) {
+        const itemData: string = e.target.value;
 
         setData((prevData) => ({
                     ...prevData,
                     [source]: prevData[source].map((obj) =>
-                        id === obj.id ? {...prevData[source], subtitles: prevData[source].subtitles.map((sub, i) => i === index ? itemData : sub),} : obj
+                        id === obj.id ? {...obj, subtitles: obj.subtitles.map((sub, i) => i === index ? itemData : sub),} : obj
                     ),
             }));
     }
 
-    function handleBullets(e, index) {
-        const itemData = e.target.value;
+    function handleBullets(e: ChangeEvent<HTMLInputElement>, index: number) {
+        const itemData: string = e.target.value;
 
         setData((prevData) => ({
             ...prevData,
             [source]: prevData[source].map((obj) =>
                 id === obj.id ? {
-                    ...prevData[source],
-                    bullets: prevData[source].bullets.map((b, i) => i === index ? itemData : b),
+                    obj,
+                    bullets: obj.bullets.map((b, i) => i === index ? itemData : b),
                 } : obj
             ),   
         }));

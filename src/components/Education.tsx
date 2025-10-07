@@ -1,5 +1,5 @@
 
-import SectionInfo from "./SectionInfo.jsx";
+import SectionInfo from "./SectionInfo.js";
 
 export default function Education({ data, setData, isEditing }) {
 

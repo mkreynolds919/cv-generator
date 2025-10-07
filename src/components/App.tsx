@@ -1,11 +1,11 @@
 import '../styles/App.css'
-import Page from "./Page.jsx";
-import initialData from "../data/initialData.js";
+import Page from "./Page";
+import {initialData, type ResumeData} from "../data/initialData";
 import { useState } from 'react';
 
 function App() {
-  const [data, setData] = useState(initialData);
-  const [isEditing, setIsEditing] = useState(true);
+  const [data, setData] = useState<ResumeData>(initialData);
+  const [isEditing, setIsEditing] = useState<boolean>(true);
   const { header, summary, education, experience, skills, projects } = data;
 
   return (

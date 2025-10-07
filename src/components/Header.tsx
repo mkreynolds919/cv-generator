@@ -1,9 +1,17 @@
 
 import "../styles/Header.css";
+import type {ResumeData} from '../data/initialData';
+import type {Dispatch, SetStateAction, ChangeEvent} from 'react';
 
-export default function Header({ data, setData, isEditing }) {
+type Props = {
+    data: ResumeData["header"],
+    setData: Dispatch<SetStateAction<ResumeData>>,
+    isEditing: boolean,
+}
 
-    function handleHeaderData(e, item) {
+export default function Header({ data, setData, isEditing }: Props) {
+
+    function handleHeaderData(e: ChangeEvent<HTMLInputElement>, item: string) {
         const itemData = e.target.value;
 
         setData(prevData => ({
@@ -23,7 +31,7 @@ export default function Header({ data, setData, isEditing }) {
                 <div className="contact-container">
                     <input className="location" onChange={e => handleHeaderData(e, "location")} value={data.location} style={{width: `${Math.max(data.location.length + 1, 1)}ch`}} />
                     <span className="hypen">-</span>
-                    <input className="phone" maxLength="12" onChange={e => handleHeaderData(e, "phone")} value={data.phone} style={{width: `${Math.max(data.phone.length, 1)}ch`}} />
+                    <input className="phone" maxLength={12} onChange={e => handleHeaderData(e, "phone")} value={data.phone} style={{width: `${Math.max(data.phone.length, 1)}ch`}} />
                     <span className="hypen">-</span>
                     <input className="email" onChange={e => handleHeaderData(e, "email")} value={data.email} style={{width: `${Math.max(data.email.length + 2, 1)}ch`}} />
                 </div>

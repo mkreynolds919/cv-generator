@@ -1,7 +1,15 @@
 
-import SectionInfo from "./SectionInfo.jsx";
+import SectionInfo from "./SectionInfo.js";
+import type {ResumeData} from '../data/initialData';
+import type {Dispatch, SetStateAction} from 'react';
 
-export default function Projects({ data, setData, isEditing }) {
+type Props = {
+    data: ResumeData,
+    setData: Dispatch<SetStateAction<ResumeData>>,
+    isEditing: boolean,
+}
+
+export default function Projects({ data, setData, isEditing }: Props) {
 
     function addProject() {
         setData((prevData) => ({
@@ -20,7 +28,7 @@ export default function Projects({ data, setData, isEditing }) {
         }));
     }
 
-    function deleteProject(id) {
+    function deleteProject(id: string) {
         setData((prevData) => ({
             ...prevData,
             projects: prevData.projects.filter((proj) => {

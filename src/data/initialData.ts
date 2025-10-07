@@ -17,7 +17,7 @@ type Header = {
     email: string,
 }
 
-type ResumeData = {
+export type ResumeData = {
     header: Header,
     summary: string,
     education: SectionItem[],
