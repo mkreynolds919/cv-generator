@@ -1,4 +1,33 @@
-const initialData = {
+
+type SectionItem = {
+    name: string,
+    location?: string,
+    startDate: string,
+    endDate: string,
+    subtitles: string[],
+    bullets: string[],
+    id: string,
+}
+
+type Header = {
+    name: string,
+    title: string,
+    location: string,
+    phone: string,
+    email: string,
+}
+
+type ResumeData = {
+    header: Header,
+    summary: string,
+    education: SectionItem[],
+    experience: SectionItem[],
+    skills: string[],
+    projects: SectionItem[]
+}
+
+
+export const initialData: ResumeData = {
     header: {
         name: "Your Name",
         title: "Title/Role",
@@ -36,5 +65,3 @@ const initialData = {
         id: crypto.randomUUID(),
     },],
 }
-
-export default initialData;
